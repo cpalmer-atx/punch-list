@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '../config/.env' });
+require('dotenv').config({ path: './config/.env' });
 const express = require('express');
 const path = require('path');
 
@@ -8,6 +8,7 @@ const app = express();
 // Middleware
 
 //Routers
+app.use('/api/sanity', require('./routes/sanity'));
 
 if (production) {
   app.use(express.static(path.join(__dirname, '../client/build')));
