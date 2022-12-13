@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 const connectDB = async (URI) => {
   try {
+    // Mongoose 7 'strictQuery' will default to 'false'. This
+    // suppresses a deprecation warning until v.7.x is released.
     mongoose.set('strictQuery', true);
     
     const conn = await mongoose.connect(URI);
