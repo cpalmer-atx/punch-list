@@ -6,9 +6,11 @@ const production = process.env.PRODUCTION;
 const app = express();
 
 // Middleware
+app.use(express.json());
 
 //Routers
 app.use('/api/sanity', require('./routes/sanity'));
+app.use('/api/users', require('./routes/user'));
 
 if (production) {
   app.use(express.static(path.join(__dirname, '../client/build')));
