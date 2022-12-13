@@ -1,4 +1,3 @@
-// require('dotenv').config({ path: '../../config/.env' });
 const request = require('supertest');
 
 const testAPI = () => {
