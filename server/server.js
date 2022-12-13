@@ -1,10 +1,15 @@
+const connectDB = require('./db');
 const app = require('./app');
 
+const MODE = process.env.PRODUCTION === true ? 'Production' : 'Development';
+const MONGO_URI = process.env.MONGO_URI;
 const PORT = process.env.PORT;
 
 const server = app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}...`);
+  console.log(`${MODE} server listening on port ${PORT}...`);
 });
+
+connectDB(MONGO_URI);
 
 process.on('unhandledRejection', err => {
   console.log(`An error has occured: ${err.message}`);
