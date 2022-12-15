@@ -1,4 +1,5 @@
 require('dotenv').config({ path: './config/.env' });
+const { urlencoded } = require('express');
 const express = require('express');
 const path = require('path');
 
@@ -7,6 +8,7 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 //Routers
 app.use('/api/sanity', require('./routes/sanity'));
