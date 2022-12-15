@@ -41,7 +41,7 @@ exports.createUser = async (req, res) => {
         if (err) { 
           throw err;
         }
-        res.json({ token });
+        res.json({ token: token, data: user });
       }
     );
   } catch (err) {
